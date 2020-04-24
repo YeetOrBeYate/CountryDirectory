@@ -5,9 +5,27 @@ import App from './App';
 import {BrowserRouter as Router} from 'react-router-dom'
 import * as serviceWorker from './serviceWorker';
 
+//redux functionality
+
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware, combineReducers} from "redux";
+import thunk from "redux-thunk";
+
+//reducers
+
+import {CountriesReducer} from "./Reducers/Countries"
+
+const rootReducer = combineReducers({
+  Countries:CountriesReducer
+})
+
+const store = createStore(rootReducer, applyMiddleware(thunk));
+
 ReactDOM.render(
   <Router>
-    <App />
+    <Provider store = {store}>
+      <App />
+    </Provider>
   </Router>,
   document.getElementById('root')
 );
