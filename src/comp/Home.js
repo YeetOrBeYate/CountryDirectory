@@ -4,7 +4,11 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Card} from "antd"
 import "../App.css"
 
-const Home = ()=>{
+const Home = (props)=>{
+
+
+
+    props.changeOpen(true)
 
     const dispatch = useDispatch()
     const Countries = useSelector(state=>state.Countries)
@@ -26,12 +30,14 @@ const Home = ()=>{
     return(
         <div className="yeet">
             {Countries.list.map((place,index)=>(
-                <Card hoverable style={{width:"25%"}} cover = {<img alt="flag" src={place.flag}/>}>
+                <Card key={index} hoverable style={{}} cover = {<img alt="flag" src={place.flag}/>}>
                     <Meta
                         title = {place.name}
+                        style={{marginBottom:'14px'}}
+
                     />
-                    <p>Region:{place.region}</p>
-                    <p>Population:{place.population}</p>
+                    <p>Region: {place.region}</p>
+                    <p>Population: {place.population}</p>
 
                 </Card>
             ))}

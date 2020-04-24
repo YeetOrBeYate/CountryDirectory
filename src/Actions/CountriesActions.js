@@ -10,6 +10,7 @@ const loadSuccess = (data)=>{
 
 
 
+
 export const LoadCountries = ()=>{
     return function(dispatch){
 
@@ -22,7 +23,24 @@ export const LoadCountries = ()=>{
         })
 
         .catch(err=>{
-            console.log("err",err)
+            console.log("loaderr",err)
+        })
+    }
+}
+
+export const FilterCountries = (region)=>{
+
+    return function(dispatch){
+        dispatch(loading())
+
+        return axios.get(`https://restcountries.eu/rest/v2/region/${region}`)
+
+        .then(res=>{
+            dispatch(loadSuccess(res.data))
+        })
+
+        .catch(err=>{
+            console.log("filter",err)
         })
     }
 }
