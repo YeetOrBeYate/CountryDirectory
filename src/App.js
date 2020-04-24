@@ -1,13 +1,16 @@
 import React from 'react';
 import {Route,Switch} from "react-router-dom"
-import { Layout, Menu, Breadcrumb } from 'antd';
+import { Layout, Menu, Dropdown, Button } from 'antd';
+import {FilterOutlined, DownOutlined} from "@ant-design/icons"
 import Home from "./comp/Home"
+import HomeSubMenu from "./comp/HomeSubMenu"
 import About from "./comp/About"
 import styles from './App.css';
 
 
 function App() {
   
+  const {SubMenu} = Menu;
   const { Header, Content, Footer, Sider } = Layout;
 
   return (
@@ -31,11 +34,22 @@ function App() {
             >
               <Menu
                 mode="inline"
-                style={{ height: '100%' }}
+                style={{ height: '100%'}}
               >
+                <HomeSubMenu
+                  parentMenu = {Menu}
+                  key='sub1'
+                  title ={
+                    <span>
+                      <FilterOutlined />
+                      Filters
+                    </span>
+                  }
+                >
+                </HomeSubMenu>
               </Menu>
             </Sider>
-            <Content style={{ padding: '0 1%', minHeight: "100vh", background:"white", margin:'0 1%' }}>
+            <Content style={{ padding: '0 1%', minHeight: "90vh", background:"white", margin:'0 1%' }}>
               Content
               <Switch>
                 <Route path="/about" component={About}/>
