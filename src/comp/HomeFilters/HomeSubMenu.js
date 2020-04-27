@@ -2,6 +2,7 @@ import React from 'react'
 import {Menu, Select} from "antd"
 import {FilterOutlined, DownOutlined} from "@ant-design/icons"
 import RegionSelect from "./RegionSelect"
+import TradingSelect from "./TradingSelect"
 import "../../App.css"
 
 const HomeSubMenu = ({header, children, ...props})=>{
@@ -21,7 +22,10 @@ const HomeSubMenu = ({header, children, ...props})=>{
         
         >
             <Menu.Item style ={{padding:0 }}>
-                <RegionSelect/>
+              <RegionSelect/>
+            </Menu.Item>
+            <Menu.Item>
+              <TradingSelect/>
             </Menu.Item>
         </Menu.SubMenu>
     )

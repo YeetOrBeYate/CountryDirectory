@@ -44,3 +44,19 @@ export const FilterCountries = (region)=>{
         })
     }
 }
+
+export const FilterBlocs = (bloc)=>{
+    return function(dispatch){
+        dispatch(loading())
+
+        return axios.get(`https://restcountries.eu/rest/v2/regionalbloc/${bloc}`)
+
+        .then(res=>{
+            dispatch(loadSuccess(res.data))
+        })
+
+        .catch(err=>{
+            console.log('bloc',err)
+        })
+    }
+}

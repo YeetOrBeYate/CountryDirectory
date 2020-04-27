@@ -55,6 +55,7 @@ const Home = (props)=>{
                         style={{marginBottom:'14px'}}
 
                     />
+                    <p>Capital: {place.capital}</p>
                     <p>Region: {place.region}</p>
                     <p>Population: {place.population}</p>
 

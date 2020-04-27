@@ -32,7 +32,7 @@ const RegionSelect = ()=>{
     return(
         <Select 
         defaultValue={"All Regions"} 
-        style={{width:140}} 
+        style={{width:180}} 
         onChange={handle}>
             <Option value={region.None}>All Regions</Option>
             <Option value={region.Asia}>Asia</Option>
