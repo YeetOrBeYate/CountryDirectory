@@ -25,6 +25,13 @@
   margin:1%;
 }
 
+.ant-pagination{
+  margin: 1% auto;
+  /* border:1px solid black; */
+  /* width: 50%; */
+  padding:10% auto;
+}
+
 @media screen and (max-width:1050px){
   .yeet{
     flex-direction: column;

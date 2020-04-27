@@ -32,6 +32,12 @@ const Home = (props)=>{
         setCurrentPage(page)
     }
 
+    const changePageSize = (current, size)=>{
+        console.log("size",size, "current", current)
+        setCurrentPage(current)
+        setCardsPerPage(size)
+    }
+
     if(!Countries.list || Countries.loading){
         return(
             <div className="yeet">
@@ -57,26 +63,30 @@ const Home = (props)=>{
 
 
     return(
-        <div className="yeet">
-            {Countries.list.slice(indexOfFirstCard,indexOfLastCard).map((place,index)=>(
-                <Card key={index} hoverable  cover = {<img alt="flag" src={place.flag}/>}>
-                    <Meta
-                        title = {place.name}
-                        style={{marginBottom:'14px'}}
+        <div>
+            <div className="yeet">
+                {Countries.list.slice(indexOfFirstCard,indexOfLastCard).map((place,index)=>(
+                    <Card key={index} hoverable  cover = {<img alt="flag" src={place.flag}/>}>
+                        <Meta
+                            title = {place.name}
+                            style={{marginBottom:'14px'}}
 
-                    />
-                    <p>Capital: {place.capital}</p>
-                    <p>Region: {place.region}</p>
-                    <p>Population: {place.population}</p>
+                        />
+                        <p>Capital: {place.capital}</p>
+                        <p>Region: {place.region}</p>
+                        <p>Population: {place.population}</p>
 
-                </Card>
-            ))}
+                    </Card>
+                ))}
+            </div>
             <Pagination 
                 defaultPageSize={cardsPerPage} 
                 current={currentPage} 
                 onChange={changePage} 
                 total = {Countries.list.length}
-                showSizeChanger={false} />
+                showSizeChanger={true}
+                onShowSizeChange={changePageSize}
+                pageSizeOptions={["8","16","24","32"]} />
         </div>
     )
 
