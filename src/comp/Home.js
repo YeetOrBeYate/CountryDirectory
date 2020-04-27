@@ -1,14 +1,12 @@
 import React from 'react'
 import {LoadCountries} from "../Actions/CountriesActions"
 import {useDispatch, useSelector} from 'react-redux';
-import {Card, Avatar} from "antd"
+import {Card, Pagination} from "antd"
 import "../App.css"
 
 const Home = (props)=>{
 
     const loadVar = [0,0,0,0,0,0,0,0]
-
-
 
     props.changeOpen(true)
 
@@ -16,11 +14,23 @@ const Home = (props)=>{
     const Countries = useSelector(state=>state.Countries)
     const {Meta} = Card
 
+    const [currentPage, setCurrentPage] = React.useState(1)
+    const [cardsPerPage, setCardsPerPage] = React.useState(8)
+
+    //last card on the page will be number 8
+    const indexOfLastCard = currentPage * cardsPerPage
+    //first card will be number 0
+    const indexOfFirstCard = indexOfLastCard-cardsPerPage
+
     React.useEffect(()=>{
 
         dispatch(LoadCountries())
         
     },[])
+
+    const changePage = (page)=>{
+        setCurrentPage(page)
+    }
 
     if(!Countries.list || Countries.loading){
         return(
@@ -48,7 +58,7 @@ const Home = (props)=>{
 
     return(
         <div className="yeet">
-            {Countries.list.map((place,index)=>(
+            {Countries.list.slice(indexOfFirstCard,indexOfLastCard).map((place,index)=>(
                 <Card key={index} hoverable  cover = {<img alt="flag" src={place.flag}/>}>
                     <Meta
                         title = {place.name}
@@ -61,6 +71,12 @@ const Home = (props)=>{
 
                 </Card>
             ))}
+            <Pagination 
+                defaultPageSize={cardsPerPage} 
+                current={currentPage} 
+                onChange={changePage} 
+                total = {Countries.list.length}
+                showSizeChanger={false} />
         </div>
     )
 
