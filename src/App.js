@@ -10,7 +10,8 @@ import About from "./comp/About"
 import "./App.css"
 
 
-function App() {
+function App(props) {
+
   
   const Countries = useSelector(state=>state.Countries)
   const { Header, Content, Footer, Sider } = Layout;
@@ -67,7 +68,7 @@ function App() {
             <Content style={{ padding: '0 1%', minHeight: "90vh", background:"white", margin:'0 1%' }}>
               Content
               <Switch>
-                <Route path="/about" component={About}/>
+                <Route path="/about" render={(props)=> <About {...props} changeOpen={changeOpen}/>}/>
                 <Route path="/" render={(props)=> <Home {...props} changeOpen={changeOpen}/>}/>
               </Switch>
                   

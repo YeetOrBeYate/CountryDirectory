@@ -1,6 +1,12 @@
 import React from 'react'
 
-const About = ()=>{
+const About = (props)=>{
+
+    React.useEffect(()=>{
+        console.log("loaded")
+    },[])
+
+    props.changeOpen(false)
 
     return(
         <div>
