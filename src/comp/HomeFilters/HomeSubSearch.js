@@ -10,6 +10,11 @@ import "../../App.css"
 const HomeSubSearch = ({header, children, ...props})=>{
 
     const Countries = useSelector(state=>state.Countries)
+    const [options, setOptions] =React.useState([
+        {value:"Yeet"},
+        {value:"Yate"},
+        {value:'Or'}
+    ])
 
 
     const autoSelect = (value, option)=>{
@@ -19,6 +24,10 @@ const HomeSubSearch = ({header, children, ...props})=>{
 
     const autoSearch = (value)=>{
         console.log('AutoSearch', value)
+    }
+
+    const inputSearch = (value, event)=>{
+        console.log('inputSearch', value)
     }
 
     return(
@@ -32,20 +41,20 @@ const HomeSubSearch = ({header, children, ...props})=>{
                 </span>
             }
         >
-            <Menu.Item>
+            <Menu.Item style = {{height:60}}>
                 <AutoComplete
-                    dropdownMatchSelectWidth={300}
-                    style={{width:300}}
-                    options={Countries.list}
+                    dropdownMatchSelectWidth={230}
+                    style={{width:230}}
+                    options={options}
                     onSelect={autoSelect}
                     onSearch={autoSearch}
-                    filterOption={(inputValue,option)=>option.name.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
+                    filterOption={(inputValue,option)=>option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
                 >
                     <Input.Search
                     placeholder="Country name"
                     enterButton="Search"
                     size="large"
-                    onSearch={()=>console.log("input seracjh")}
+                    onSearch={inputSearch}
                     >
                     </Input.Search>
                 </AutoComplete>

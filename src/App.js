@@ -34,24 +34,6 @@ function App() {
             <Menu.Item key="1">nav 1</Menu.Item>
             <Menu.Item key="2">nav 2</Menu.Item>
             <Menu.Item key="3">nav 3</Menu.Item>
-            {/* <Menu.Item key="4">
-              <AutoComplete
-                dropdownMatchSelectWidth={300}
-                style={{width:300}}
-                options={list}
-                onSelect={theSelect}
-                onSearch={theSearch}
-                filterOption={(inputValue,option)=>option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
-              >
-                <Input.Search
-                  placeholder="Country name"
-                  enterButton="Search"
-                  size="large"
-                  onSearch={()=>console.log("input seracjh")}
-                >
-                </Input.Search>
-              </AutoComplete>
-            </Menu.Item> */}
           </Menu>
         </Header>
         <Content style={{}}>
