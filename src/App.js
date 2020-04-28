@@ -7,6 +7,7 @@ import Home from "./comp/Home"
 import HomeSubMenu from "./comp/HomeFilters/HomeSubMenu"
 import HomeSubSearch from "./comp/HomeFilters/HomeSubSearch"
 import About from "./comp/About"
+import InfoPage from "./comp/InfoPage"
 import "./App.css"
 
 
@@ -17,7 +18,6 @@ function App(props) {
   const { Header, Content, Footer, Sider } = Layout;
 
   const [open,setOpen] = React.useState(true)
-  const list =[{value:'yeet'}, {value:'yate'}, {value:'Be'}]
 
   const changeOpen = (yeet)=>{
     setOpen(yeet)
@@ -69,6 +69,7 @@ function App(props) {
               Content
               <Switch>
                 <Route path="/about" render={(props)=> <About {...props} changeOpen={changeOpen}/>}/>
+                <Route path="/country/:code" render={(props)=> <InfoPage {...props} changeOpen={changeOpen}/>}/>
                 <Route path="/" render={(props)=> <Home {...props} changeOpen={changeOpen}/>}/>
               </Switch>
                   

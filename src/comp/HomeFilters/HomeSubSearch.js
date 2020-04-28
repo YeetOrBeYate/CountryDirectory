@@ -3,9 +3,6 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Menu, AutoComplete, Input, Button} from "antd"
 import {Redirect} from "react-router-dom"
 import {SearchOutlined} from "@ant-design/icons"
-import {FilterOutlined, DownOutlined} from "@ant-design/icons"
-import RegionSelect from "./RegionSelect"
-import TradingSelect from "./TradingSelect"
 import "../../App.css"
 
 const HomeSubSearch = ({header, children, ...props})=>{
@@ -15,6 +12,7 @@ const HomeSubSearch = ({header, children, ...props})=>{
     const Countries = useSelector(state=>state.Countries)
     const [options, setOptions] =React.useState(null)
     const [redirect, setRedirect] = React.useState(false)
+    const [code,setCode] = React.useState('')
 
     const loadOptions = ()=>{
         if(Countries.list && !options){
@@ -31,19 +29,19 @@ const HomeSubSearch = ({header, children, ...props})=>{
 
     const autoSelect = (value, option)=>{
         setRedirect(false)
-        console.log("autoSelect-option", option)
+        setCode(option.code)
         setRedirect(true)
     }
 
+    //this one controls typing no matter what. If you type, you prime the redirect 
     const autoSearch = (value)=>{
         setRedirect(false)
-        console.log('AutoSearch', value)
     }
 
     const inputSearch = (value, event)=>{
-        setRedirect(false)
-        console.log('inputSearch', value)
-        // setRedirect(true)
+        let option = options.find((option=>{return option.value.toUpperCase()===value.toUpperCase() }))
+        setCode(option.code)
+        setRedirect(true)
     }
 
     return(
@@ -77,7 +75,7 @@ const HomeSubSearch = ({header, children, ...props})=>{
                 </AutoComplete>
             </Menu.Item>
             {redirect?
-                <Redirect push to="/about"/>
+                <Redirect push to={`/country/${code}`}/>
                 :
                 <></>
             }
