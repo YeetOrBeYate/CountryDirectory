@@ -32,7 +32,13 @@
   padding:10% auto;
 }
 
+.ant-input-group-wrapper{
+  /* margin-top:3.4% */
+}
+
 @media screen and (max-width:1050px){
+
+
   .yeet{
     flex-direction: column;
     flex-wrap: nowrap;
@@ -43,6 +49,12 @@
   }
   .ant-layout-content{
     padding: 0 20px;
+  }
+}
+
+@media screen and (max-width:673px){
+  .ant-input-group-wrapper{
+    margin: 0;
   }
 }
 

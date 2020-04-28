@@ -1,23 +1,27 @@
 import React from 'react';
 import {Route,Switch} from "react-router-dom"
-import { Layout, Menu, Dropdown, Button } from 'antd';
+import {useDispatch, useSelector} from 'react-redux';
+import { Layout, Menu, Button, Input, AutoComplete } from 'antd';
 import {FilterOutlined, DownOutlined} from "@ant-design/icons"
 import Home from "./comp/Home"
 import HomeSubMenu from "./comp/HomeFilters/HomeSubMenu"
+import HomeSubSearch from "./comp/HomeFilters/HomeSubSearch"
 import About from "./comp/About"
 import "./App.css"
 
 
 function App() {
   
-  const {SubMenu} = Menu;
+  const Countries = useSelector(state=>state.Countries)
   const { Header, Content, Footer, Sider } = Layout;
 
-  const[open,setOpen] = React.useState(true)
+  const [open,setOpen] = React.useState(true)
+  const list =[{value:'yeet'}, {value:'yate'}, {value:'Be'}]
 
   const changeOpen = (yeet)=>{
     setOpen(yeet)
   }
+
 
 
   return (
@@ -30,6 +34,24 @@ function App() {
             <Menu.Item key="1">nav 1</Menu.Item>
             <Menu.Item key="2">nav 2</Menu.Item>
             <Menu.Item key="3">nav 3</Menu.Item>
+            {/* <Menu.Item key="4">
+              <AutoComplete
+                dropdownMatchSelectWidth={300}
+                style={{width:300}}
+                options={list}
+                onSelect={theSelect}
+                onSearch={theSearch}
+                filterOption={(inputValue,option)=>option.value.toUpperCase().indexOf(inputValue.toUpperCase()) !== -1}
+              >
+                <Input.Search
+                  placeholder="Country name"
+                  enterButton="Search"
+                  size="large"
+                  onSearch={()=>console.log("input seracjh")}
+                >
+                </Input.Search>
+              </AutoComplete>
+            </Menu.Item> */}
           </Menu>
         </Header>
         <Content style={{}}>
@@ -41,11 +63,19 @@ function App() {
             >
               <Menu
                 mode="inline"
-                style={{ height: '100%'}}
+                style={{ height: '50%'}}
               >
-                {open?
-
+                {open && Countries.list?
+                  
                   <HomeSubMenu/>
+                  
+                  :
+                  <></>
+
+                }
+                {open && Countries.list?
+
+                  <HomeSubSearch/>
                   :
                   <></>
 
