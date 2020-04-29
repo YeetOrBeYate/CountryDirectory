@@ -18,6 +18,7 @@
   display:flex;
   flex-wrap: wrap;
   justify-content: space-around;
+  border:.1px solid red;
 }
 
 .ant-card{
@@ -34,6 +35,15 @@
 
 .ant-input-group-wrapper{
   margin-bottom:5%;
+}
+
+.Info{
+  border:.1px solid blue;
+  display: flex;
+}
+
+.Stats{
+  border:.1px solid green;
 }
 
 @media screen and (max-width:1050px){

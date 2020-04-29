@@ -42,15 +42,15 @@ const successStats = (data)=>{
         totalArea += place.area
         totalGini += place.gini
 
-        if(place.region == "Asia"){
+        if(place.region === "Asia"){
             Asia.push(place)
-        }else if(place.region == "Africa"){
+        }else if(place.region === "Africa"){
             Africa.push(place)
-        }else if(place.region == "Americas"){
+        }else if(place.region === "Americas"){
             Americas.push(place)
-        }else if(place.region == "Europe"){
+        }else if(place.region === "Europe"){
             Europe.push(place)
-        }else if(place.region == "Oceania"){
+        }else if(place.region === "Oceania"){
             Oceania.push(place)
         }
     });

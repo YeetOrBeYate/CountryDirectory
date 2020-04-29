@@ -8,6 +8,10 @@ const loadSuccess = (data)=>{
     return {type:'countriesSuccess', payload:data}
 }
 
+const loadSingleSuccess = (data)=>{
+    return{type:'singleCountrySuccess', payload:data}
+}
+
 
 
 
@@ -26,6 +30,27 @@ export const LoadCountries = ()=>{
             console.log("loaderr",err)
         })
     }
+}
+
+export const LoadSingleCountry = (code)=>{
+
+    return function(dispatch){
+
+        dispatch(loading())
+
+        return axios.get(`https://restcountries.eu/rest/v2/alpha/${code}`)
+
+        .then(res=>{
+            
+            dispatch(loadSingleSuccess(res.data))
+            
+        })
+
+        .catch(err=>{
+            console.log('single country err', err)
+        })
+    }
+
 }
 
 export const FilterCountries = (region)=>{

@@ -2,7 +2,8 @@
 const initialState = {
     loading:false,
     failure:false,
-    list:null
+    list:null,
+    single:null
 }
 
 export const CountriesReducer = (state = initialState, action)=>{
@@ -13,6 +14,8 @@ export const CountriesReducer = (state = initialState, action)=>{
             return {...state, loading:false, list:action.payload}
         case "countriesFailure":
             return {...state, loading:false}
+        case "singleCountrySuccess":
+            return {...state, loading:false, single:action.payload}
         default:
             return state
     }
