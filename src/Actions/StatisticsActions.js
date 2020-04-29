@@ -1,4 +1,5 @@
 import axios from "axios"
+import {loadSuccess} from "../Actions/CountriesActions"
 
 const loadingStats = ()=>{
     return {type:"statisticsLoading"}
@@ -149,7 +150,7 @@ export const loadStatistics = ()=>{
         return axios.get(`https://restcountries.eu/rest/v2/all`)
 
         .then(res=>{
-
+            dispatch(loadSuccess(res.data))
             dispatch(successStats(res.data))
 
         })

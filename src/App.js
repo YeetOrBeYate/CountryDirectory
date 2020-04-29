@@ -17,7 +17,7 @@ function App(props) {
   const Countries = useSelector(state=>state.Countries)
   const { Header, Content, Footer, Sider } = Layout;
 
-  const [open,setOpen] = React.useState(true)
+  const [HomeFilters,setOpen] = React.useState(true)
 
   const changeOpen = (yeet)=>{
     setOpen(yeet)
@@ -48,7 +48,7 @@ function App(props) {
                 mode="inline"
                 style={{ height: '50%'}}
               >
-                {open && Countries.list?
+                {HomeFilters && Countries.list?
                   
                   <HomeSubMenu/>
                   
@@ -56,7 +56,7 @@ function App(props) {
                   <></>
 
                 }
-                {open && Countries.list?
+                {Countries.list?
 
                   <HomeSubSearch/>
                   :

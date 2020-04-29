@@ -18,7 +18,7 @@
   display:flex;
   flex-wrap: wrap;
   justify-content: space-around;
-  border:.1px solid red;
+  /* border:.1px solid red; */
 }
 
 .ant-card{
@@ -42,8 +42,37 @@
   display: flex;
 }
 
+.Info .ant-card{
+  width: 50%;
+  height: 70%;
+}
+
+.ant-tabs{
+  width: 50%;
+  /* border:1px solid red; */
+}
+
+/* .ant-tabs-top-content{
+  height: 91%;
+}
+
+.ant-tabs-tabpane{
+  height: 100%;
+} */
+
 .Stats{
-  border:.1px solid green;
+  background: #ececec;
+  padding: 5%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  /* border:.1px solid green; */
+}
+
+.statDiv{
+  background: #ffffff;
+  padding: 10%;
 }
 
 @media screen and (max-width:1050px){
@@ -60,6 +89,14 @@
   .ant-layout-content{
     padding: 0 20px;
   }
+
+  .Info .ant-card{
+    width: 90%;
+    height: 70%;
+    /* border:1px solid red; */
+
+  }
+
 }
 
 @media screen and (max-width:673px){

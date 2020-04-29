@@ -4,7 +4,8 @@ const loading = ()=>{
     return {type:'countriesLoading'}
 }
 
-const loadSuccess = (data)=>{
+//exporting to reuse in the statistics folder
+export const loadSuccess = (data)=>{
     return {type:'countriesSuccess', payload:data}
 }
 
