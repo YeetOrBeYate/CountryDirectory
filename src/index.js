@@ -14,9 +14,11 @@ import thunk from "redux-thunk";
 //reducers
 
 import {CountriesReducer} from "./Reducers/Countries"
+import {StatisticsReducer} from "./Reducers/Statistics"
 
 const rootReducer = combineReducers({
-  Countries:CountriesReducer
+  Countries:CountriesReducer,
+  Statistics:StatisticsReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(thunk));
