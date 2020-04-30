@@ -1,14 +1,12 @@
 import React from "react"
 import {useDispatch, useSelector} from 'react-redux';
 import {Statistic, Row, Col} from "antd"
-import {LoadSingleCountry} from "../Actions/CountriesActions"
-import {loadStatistics} from "../Actions/StatisticsActions"
+
 
 const InfoStats = (props)=>{
 
-    const Statistics = props.stats
     const dispatch = useDispatch()
-    {console.log(Statistics)}
+
     console.log(props)
 
     return(
@@ -25,7 +23,7 @@ const InfoStats = (props)=>{
                 <Col span={12}>
                     <Statistic
                         title="Average Population"
-                        value={Statistics.avgPopulation}
+                        value={props.comparePop}
                     />
                 </Col>
             </Row>
@@ -42,7 +40,7 @@ const InfoStats = (props)=>{
                     <Statistic
                         title="Average Area"
                         precision={2}
-                        value={Statistics.avgArea}
+                        value={props.compareArea}
                     />
                 </Col>
             </Row>
@@ -59,7 +57,7 @@ const InfoStats = (props)=>{
                     <Statistic
                         title="Average gini"
                         precision={2}
-                        value={Statistics.avgGini}
+                        value={props.compareGini}
                     />
                 </Col>
             </Row>

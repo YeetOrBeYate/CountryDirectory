@@ -27,10 +27,30 @@ const InfoPage = (props)=>{
         </div>)
     }
 
+    const findRegion = (key)=>{
+
+        let population = null
+
+        let filter = Countries.single.region
+        filter+=key
+
+        let list = Object.keys(Statistics)
+
+        list.forEach((label)=>{
+            if(label.toUpperCase().includes(filter.toUpperCase())){
+                population = label
+            }
+        })
+
+        return Statistics[`${population}`]
+
+    }
+
     return(
         <div className="Info">
             
-            {/* {console.log(Countries.single)} */}
+            {console.log("please work",findRegion("Area"))}
+            {console.log(Statistics.avgEuropeArea)}
             <Card
                 cover={<img alt="Flag picture" src={Countries.single.flag}/>}
             >
@@ -86,13 +106,32 @@ const InfoPage = (props)=>{
                     key="1"
                 >
                     <InfoStats 
-                    stats = {Statistics}
+                    comparePop={Statistics.avgPopulation}
+                    compareArea={Statistics.avgArea}
+                    compareGini = {Statistics.avgGini}
                     name = {Countries.single.name}
                     region = {Countries.single.region}
                     population= {Countries.single.population}
                     area = {Countries.single.area}
                     gini = {Countries.single.gini}
                     />
+                </Tabs.TabPane>
+                <Tabs.TabPane
+                    tab="Region Statistics"
+                    key="2"
+                >
+
+                    <InfoStats
+                    comparePop={findRegion("Pop")}
+                    compareArea={findRegion("Area")}
+                    compareGini={findRegion("Gini")}
+                    name = {Countries.single.name}
+                    region = {Countries.single.region}
+                    population= {Countries.single.population}
+                    area = {Countries.single.area}
+                    gini = {Countries.single.gini}
+                    />
+
                 </Tabs.TabPane>
             </Tabs>
 
