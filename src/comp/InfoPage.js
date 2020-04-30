@@ -52,22 +52,12 @@ const InfoPage = (props)=>{
             {console.log("please work",findRegion("Area"))}
             {console.log(Statistics.avgEuropeArea)}
             <Card
-                cover={<img alt="Flag picture" src={Countries.single.flag}/>}
+                cover={<img style={{border:".5px solid #f0f0f0"}} alt="Flag picture" src={Countries.single.flag}/>}
             >
                 <Card.Meta style={{marginBottom:"14px"}} title={Countries.single.name} description={`Capital: ${Countries.single.capital}`}/>
                 <Divider orientation="left">Region</Divider>
                     <div>
                         <span>{Countries.single.region}<Divider type="vertical"/>{Countries.single.subregion}</span>
-                    </div>
-                    <div style={{margin:"10px 0px "}}>
-                        <span>Timezones: </span>
-                        {Countries.single.timezones.map((time,index)=>{
-                            if(Countries.single.timezones.length > 1){
-                                return(<span key={index}>{time}<Divider type="vertical"/></span>)
-                            }else{
-                                return(<span key={index}>{time}</span>)
-                            }
-                        })}
                     </div>
                     <div style={{margin:"10px 0px "}}>
                         <span>Trading blocs: </span>
@@ -79,7 +69,17 @@ const InfoPage = (props)=>{
                             }
                         })}
                     </div>
-
+                <Divider orientation="left">TimeZones</Divider>
+                    <div style={{margin:"10px 0px "}}>
+                            <span>Timezones: </span>
+                            {Countries.single.timezones.map((time,index)=>{
+                                if(Countries.single.timezones.length > 1){
+                                    return(<span key={index}>{time}<Divider type="vertical"/></span>)
+                                }else{
+                                    return(<span key={index}>{time}</span>)
+                                }
+                            })}
+                    </div>
                 <Divider orientation="left">Currencies</Divider>
                     <div>
                         {Countries.single.currencies.map((dollar,index)=>(

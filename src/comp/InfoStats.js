@@ -39,7 +39,7 @@ const InfoStats = (props)=>{
                 <Col span={12}>
                     <Statistic
                         title="Average Area"
-                        precision={2}
+                        precision={0}
                         value={props.compareArea}
                     />
                 </Col>
@@ -56,7 +56,7 @@ const InfoStats = (props)=>{
                 <Col span={12}>
                     <Statistic
                         title="Average gini"
-                        precision={2}
+                        precision={0}
                         value={props.compareGini}
                     />
                 </Col>
