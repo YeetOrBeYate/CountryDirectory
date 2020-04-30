@@ -42,15 +42,14 @@ const InfoPage = (props)=>{
             }
         })
 
-        return Statistics[`${population}`]
+        return Statistics[`${population}`] 
 
     }
 
     return(
         <div className="Info">
             
-            {console.log("please work",findRegion("Area"))}
-            {console.log(Statistics.avgEuropeArea)}
+
             <Card
                 cover={<img style={{border:".5px solid #f0f0f0"}} alt="Flag picture" src={Countries.single.flag}/>}
             >
@@ -117,7 +116,7 @@ const InfoPage = (props)=>{
                     />
                 </Tabs.TabPane>
                 <Tabs.TabPane
-                    tab="Region Statistics"
+                    tab={`${Countries.single.region}-Region Statistics`}
                     key="2"
                 >
 

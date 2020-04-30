@@ -66,7 +66,7 @@ function App(props) {
               </Menu>
             </Sider>
             <Content style={{ padding: '0 1%', minHeight: "90vh", background:"white", margin:'0 1%' }}>
-              Content
+              
               <Switch>
                 <Route path="/about" render={(props)=> <About {...props} changeOpen={changeOpen}/>}/>
                 <Route path="/country/:code" render={(props)=> <InfoPage {...props} changeOpen={changeOpen}/>}/>
