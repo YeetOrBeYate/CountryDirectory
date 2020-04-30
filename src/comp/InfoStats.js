@@ -7,18 +7,14 @@ const InfoStats = (props)=>{
 
     const findColor = (type, stat, compare)=>{
 
-       
-
-        if(type === "gini"){
-
-            if(stat <= compare){
+        if(type == "gini"){
+            if(stat >= compare){
                 return '#cf1322'
             }else{
                 return "#3f8600"
             }
 
         }else{
-
             if(stat >= compare){
                 return '#3f8600'
             }else{
@@ -30,15 +26,13 @@ const InfoStats = (props)=>{
     const findArrow = (type, stat, compare)=>{
 
         if(type === "gini"){
-
-            if(stat <= compare){
+            if(stat >= compare){
+                console.log(stat, "is greater thatn", compare)
                 return <ArrowUpOutlined/>
             }else{
                 return <ArrowDownOutlined/>
             }
-
         }else{
-
             if(stat >= compare){
                 return <ArrowUpOutlined/>
             }else{
@@ -47,10 +41,6 @@ const InfoStats = (props)=>{
         }
     }
 
-
-
-
-    console.log(props)
 
     return(
     <div className="Stats">
@@ -98,8 +88,8 @@ const InfoStats = (props)=>{
                     <Statistic
                         title="gini"
                         value={props.gini}
-                        valueStyle ={{color: findColor("gini", props.area, props.compareArea)}}
-                        prefix={findArrow("gini", props.area, props.compareArea)}
+                        valueStyle ={{color: findColor("gini",props.gini, props.compareGini)}}
+                        prefix={findArrow("gini", props.gini, props.compareGini)}
                     />
                 </Col>
                 <Col span={12}>

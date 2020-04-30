@@ -1,5 +1,6 @@
 import React from 'react'
 import {LoadCountries} from "../Actions/CountriesActions"
+import {Link} from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux';
 import {Card, Pagination} from "antd"
 import "../App.css"
@@ -66,17 +67,19 @@ const Home = (props)=>{
         <div>
             <div className="yeet">
                 {Countries.list.slice(indexOfFirstCard,indexOfLastCard).map((place,index)=>(
-                    <Card key={index} hoverable  cover = {<img alt="flag" src={place.flag}/>}>
-                        <Meta
-                            title = {place.name}
-                            style={{marginBottom:'14px'}}
+                    <Link to = {`/country/${place.alpha3Code}`}>
+                        <Card key={index} hoverable  cover = {<img alt="flag" src={place.flag}/>}>
+                            <Meta
+                                title = {place.name}
+                                style={{marginBottom:'14px'}}
 
-                        />
-                        <p>Capital: {place.capital}</p>
-                        <p>Region: {place.region}</p>
-                        <p>Population: {place.population}</p>
+                            />
+                            <p>Capital: {place.capital}</p>
+                            <p>Population: {place.population}</p>
+                            <p>Region: {place.region}</p>
 
-                    </Card>
+                        </Card>
+                        </Link> 
                 ))}
             </div>
             <Pagination 

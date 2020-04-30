@@ -59,12 +59,12 @@ const InfoPage = (props)=>{
                         <span>{Countries.single.region}<Divider type="vertical"/>{Countries.single.subregion}</span>
                     </div>
                     <div style={{margin:"10px 0px "}}>
-                        <span>Trading blocs: </span>
+                        {/* <span>Trading blocs: </span> */}
                         {Countries.single.regionalBlocs.map((pact,index)=>{
                             if(Countries.single.regionalBlocs.length > 1){
-                                return(<span key={index}>{pact.acronym}<Divider type="vertical"/></span>)
+                                return(<span key={index}>{pact.acronym}-{pact.name}<Divider type="vertical"/></span>)
                             }else{
-                                return(<span key={index}>{pact.acronym}</span>)
+                                return(<span key={index}>{pact.acronym}-{pact.name}</span>)
                             }
                         })}
                     </div>

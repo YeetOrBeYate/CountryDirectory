@@ -16,14 +16,21 @@
 .yeet{
   /* border:.2px solid blue; */
   display:flex;
+  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   /* border:.1px solid red; */
 }
 
-.ant-card{
+.yeet a{
+  display: block;
   width:20%;
-  margin:1%;
+  margin:1%
+}
+
+.ant-card{
+  height: 100%;
+  width:100%
 }
 
 .ant-pagination{
