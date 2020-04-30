@@ -16,7 +16,6 @@
 .yeet{
   /* border:.2px solid blue; */
   display:flex;
-  flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
   /* border:.1px solid red; */
@@ -28,10 +27,12 @@
   margin:1%
 }
 
-.ant-card{
+.yeet .ant-card{
   height: 100%;
   width:100%
 }
+
+
 
 .ant-pagination{
   margin: 1% auto;
@@ -47,11 +48,13 @@
 .Info{
   /* border:.1px solid blue; */
   display: flex;
+ 
 }
 
 .Info .ant-card{
   width: 50%;
   height: 70%;
+  margin:1%
 }
 
 .ant-tabs{
@@ -59,7 +62,7 @@
 }
 
 .ant-tabs .ant-tabs-top-content{
-  height: 91.6%;
+  height: 92%;
   /* border:1px solid red */
 }
 

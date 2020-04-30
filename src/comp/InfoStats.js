@@ -27,7 +27,6 @@ const InfoStats = (props)=>{
 
         if(type === "gini"){
             if(stat >= compare){
-                console.log(stat, "is greater thatn", compare)
                 return <ArrowUpOutlined/>
             }else{
                 return <ArrowDownOutlined/>

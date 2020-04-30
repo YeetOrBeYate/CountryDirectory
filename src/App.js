@@ -5,10 +5,12 @@ import { Layout, Menu, Button, Input, AutoComplete } from 'antd';
 import {FilterOutlined, DownOutlined} from "@ant-design/icons"
 import Home from "./comp/Home"
 import HomeSubMenu from "./comp/HomeFilters/HomeSubMenu"
+import InfoSubmenu from "./comp/InfoFilters/InfoSubmenu"
 import HomeSubSearch from "./comp/HomeFilters/HomeSubSearch"
 import About from "./comp/About"
 import InfoPage from "./comp/InfoPage"
 import "./App.css"
+import InfoSubMenu from './comp/InfoFilters/InfoSubmenu';
 
 
 function App(props) {
@@ -55,6 +57,14 @@ function App(props) {
                   :
                   <></>
 
+                }
+
+                {
+                  !HomeFilters && Countries.single && Countries.list?
+
+                  <InfoSubMenu/>
+                  :
+                  <></>
                 }
                 {Countries.list?
 

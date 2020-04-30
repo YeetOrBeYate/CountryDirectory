@@ -82,8 +82,8 @@ const InfoPage = (props)=>{
                 <Divider orientation="left">Currencies</Divider>
                     <div>
                         {Countries.single.currencies.map((dollar,index)=>(
-                            <div style={{margin:"10px 0px"}}>
-                                <span key={index}>{dollar.name}<Divider type="vertical"/>{dollar.code}<Divider type="vertical"/>{dollar.symbol}</span>
+                            <div key={index} style={{margin:"10px 0px"}}>
+                                <span >{dollar.name}<Divider type="vertical"/>{dollar.code}<Divider type="vertical"/>{dollar.symbol}</span>
                             </div>
                         ))}
                     </div>
