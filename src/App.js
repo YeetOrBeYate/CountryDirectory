@@ -12,7 +12,6 @@ import InfoPage from "./comp/InfoPage"
 import "./App.css"
 import InfoSubMenu from './comp/InfoFilters/InfoSubmenu';
 
-import {reactIcon} from "../src/pics/africa.png"
 
 
 
@@ -90,6 +89,9 @@ function App(props) {
           </Layout>
         </Content>
         <Footer style={{ textAlign: 'center' }}>Kyle Corbin 2020: Ant Design <AntDesignOutlined />
+          <div>
+            <a target="_blank" href="https://icons8.com">Icons8</a>
+          </div>
         </Footer>
       </Layout>
 
