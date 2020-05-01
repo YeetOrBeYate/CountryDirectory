@@ -3,6 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Card, Divider,Tabs,Skeleton, Select} from "antd"
 import {LoadSingleCountry} from "../Actions/CountriesActions"
 import {loadStatistics} from "../Actions/StatisticsActions"
+import { loadCountriesNotif} from "./Utils"
 
 import InfoStats from "./InfoStats"
 
@@ -19,7 +20,11 @@ const InfoPage = (props)=>{
         dispatch(loadStatistics())
         dispatch(LoadSingleCountry(props.match.params.code))
 
-    },[props.match.params.code])
+        if(Countries.singleFailure){
+            loadCountriesNotif()
+        }
+
+    },[props.match.params.code, Countries.singleFailure])
 
     if(!Statistics.avgArea || !Countries.single){
         return(

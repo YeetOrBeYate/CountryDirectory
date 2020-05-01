@@ -1,5 +1,6 @@
 import React from 'react'
 import {LoadCountries} from "../Actions/CountriesActions"
+import { loadCountriesNotif} from "./Utils"
 import {Link} from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux';
 import {Card, Pagination} from "antd"
@@ -26,8 +27,13 @@ const Home = (props)=>{
     React.useEffect(()=>{
 
         dispatch(LoadCountries())
+
+        if(Countries.failure){
+            loadCountriesNotif()
+        }
         
-    },[])
+    },[Countries.failure])
+
 
     const changePage = (page)=>{
         setCurrentPage(page)
@@ -43,7 +49,7 @@ const Home = (props)=>{
         return(
             <div className="yeet">
                 {loadVar.map((card)=>(
-                    <Card loading = {true} style={{height:"350px"}}>
+                    <Card loading = {true} style={{height:"350px", display:'block', width:"20%", margin:"1%"}}>
     
                         <Meta
                         title="This is the title"
@@ -79,7 +85,7 @@ const Home = (props)=>{
                             <p>Region: {place.region}</p>
 
                         </Card>
-                        </Link> 
+                    </Link> 
                 ))}
             </div>
             <Pagination 
