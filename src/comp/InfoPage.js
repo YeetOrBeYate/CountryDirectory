@@ -20,11 +20,15 @@ const InfoPage = (props)=>{
         dispatch(loadStatistics())
         dispatch(LoadSingleCountry(props.match.params.code))
 
+    },[props.match.params.code])
+
+    React.useEffect(()=>{
+
         if(Countries.singleFailure){
             loadCountriesNotif()
         }
 
-    },[props.match.params.code, Countries.singleFailure])
+    },[Countries.singleFailure])
 
     if(!Statistics.avgArea || !Countries.single){
         return(

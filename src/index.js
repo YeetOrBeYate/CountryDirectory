@@ -15,10 +15,12 @@ import thunk from "redux-thunk";
 
 import {CountriesReducer} from "./Reducers/Countries"
 import {StatisticsReducer} from "./Reducers/Statistics"
+import {ResetReducer} from "./Reducers/Resets"
 
 const rootReducer = combineReducers({
   Countries:CountriesReducer,
-  Statistics:StatisticsReducer
+  Statistics:StatisticsReducer,
+  Reset:ResetReducer
 })
 
 const store = createStore(rootReducer, applyMiddleware(thunk));

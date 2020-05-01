@@ -1,5 +1,6 @@
 import React from 'react'
 import {LoadCountries} from "../Actions/CountriesActions"
+import {closePageReset} from "../Actions/ResetActions"
 import { loadCountriesNotif} from "./Utils"
 import {Link} from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux';
@@ -14,6 +15,7 @@ const Home = (props)=>{
 
     const dispatch = useDispatch()
     const Countries = useSelector(state=>state.Countries)
+    const Reset = useSelector(state=>state.Reset)
     const {Meta} = Card
 
     const [currentPage, setCurrentPage] = React.useState(1)
@@ -28,11 +30,21 @@ const Home = (props)=>{
 
         dispatch(LoadCountries())
 
+    },[])
+
+    React.useEffect(()=>{
+
+        if(Reset.pageReset){
+            setCurrentPage(1)
+            setCardsPerPage(8)
+            dispatch(closePageReset())
+        }
+
         if(Countries.failure){
             loadCountriesNotif()
         }
-        
-    },[Countries.failure])
+
+    },[Reset.pageReset, Countries.failure])
 
 
     const changePage = (page)=>{
@@ -88,6 +100,7 @@ const Home = (props)=>{
                     </Link> 
                 ))}
             </div>
+            {console.log(currentPage,cardsPerPage, Reset.pageReset)}
             <Pagination 
                 defaultPageSize={cardsPerPage} 
                 current={currentPage} 

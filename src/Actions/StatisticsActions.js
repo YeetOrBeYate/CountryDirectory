@@ -141,6 +141,7 @@ const successStats = (data)=>{
 
 }
 
+
 const failureStats = ()=>{
     return {type:'statisticsFailure'}
 }
@@ -156,7 +157,7 @@ export const loadStatistics = ()=>{
         .then(res=>{
             dispatch(loadSuccess(res.data))
             dispatch(successStats(res.data))
-
+            
         })
 
         .catch(err=>{

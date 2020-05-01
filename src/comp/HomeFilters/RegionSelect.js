@@ -2,6 +2,7 @@ import React from 'react'
 import {Select} from 'antd'
 import {useDispatch, useSelector} from 'react-redux';
 import {FilterCountries, LoadCountries} from "../../Actions/CountriesActions"
+import {resetPage} from "../../Actions/ResetActions"
 import "../../App.css"
 
 
@@ -25,8 +26,10 @@ const RegionSelect = ()=>{
     const handle = (value)=>{
         if(value === "None"){
             dispatch(LoadCountries())
+            dispatch(resetPage())
         }else{
             dispatch(FilterCountries(value))
+            dispatch(resetPage())
         }
     }
 

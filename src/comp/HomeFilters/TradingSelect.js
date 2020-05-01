@@ -2,6 +2,7 @@ import React from 'react'
 import {Select} from 'antd'
 import {useDispatch, useSelector} from 'react-redux';
 import {FilterBlocs,LoadCountries} from "../../Actions/CountriesActions"
+import {resetPage} from "../../Actions/ResetActions"
 import "../../App.css"
 
 const TradingSelect = ()=>{
@@ -15,10 +16,10 @@ const TradingSelect = ()=>{
 
         if(value === "None"){
             dispatch(LoadCountries())
-            console.log("load all")
+            dispatch(resetPage())
         }else{
             dispatch(FilterBlocs(value))
-            console.log('filter')
+            dispatch(resetPage())
         }
 
     }
