@@ -2,7 +2,7 @@ import React from 'react';
 import {Route,Switch, Link} from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux';
 import { Layout, Menu, Button, Input, AutoComplete } from 'antd';
-import {FilterOutlined, DownOutlined} from "@ant-design/icons"
+import {AntDesignOutlined} from "@ant-design/icons"
 import Home from "./comp/Home"
 import HomeSubMenu from "./comp/HomeFilters/HomeSubMenu"
 import InfoSubmenu from "./comp/InfoFilters/InfoSubmenu"
@@ -11,6 +11,9 @@ import About from "./comp/About"
 import InfoPage from "./comp/InfoPage"
 import "./App.css"
 import InfoSubMenu from './comp/InfoFilters/InfoSubmenu';
+
+import {reactIcon} from "../src/pics/africa.png"
+
 
 
 function App(props) {
@@ -86,7 +89,8 @@ function App(props) {
             </Content>
           </Layout>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Kyle Corbin 2020:Ant Design</Footer>
+        <Footer style={{ textAlign: 'center' }}>Kyle Corbin 2020: Ant Design <AntDesignOutlined />
+        </Footer>
       </Layout>
 
     //  </div>

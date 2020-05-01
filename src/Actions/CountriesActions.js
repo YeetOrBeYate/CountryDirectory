@@ -25,6 +25,10 @@ const loadSingleFailure = ()=>{
     return {type:'singleCountryFailure'}
 }
 
+const loadSingleFailureCode = (code)=>{
+    return {type:'countryNotFound',payload:code}
+}
+
 
 
 
@@ -62,6 +66,9 @@ export const LoadSingleCountry = (code)=>{
 
         .catch(err=>{
             console.log('single country err', err)
+            if(err.response && err.response.status === 400){
+                dispatch(loadSingleFailureCode(err.response.status))
+            }
             dispatch(loadSingleFailure())
         })
     }

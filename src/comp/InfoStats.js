@@ -48,7 +48,7 @@ const InfoStats = (props)=>{
             <Row gutter={16}>
                 <Col span={12}>
                     <Statistic
-                        title="Population"
+                        title="Country Population"
                         value={props.population}
                         valueStyle={{color: findColor("big",props.population, props.comparePop)}}
                         prefix={findArrow("big",props.population, props.comparePop)}
@@ -87,7 +87,7 @@ const InfoStats = (props)=>{
             <Row gutter={16}>
                 <Col span={12}>
                     <Statistic
-                        title="gini"
+                        title="Gini"
                         value={props.gini}
                         valueStyle ={{color: findColor("gini",props.gini, props.compareGini)}}
                         prefix={findArrow("gini", props.gini, props.compareGini)}

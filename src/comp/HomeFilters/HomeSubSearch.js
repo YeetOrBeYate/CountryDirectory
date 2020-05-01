@@ -1,4 +1,5 @@
 import React from 'react'
+import {countryNotFound} from "../Utils"
 import {useDispatch, useSelector} from 'react-redux';
 import {Menu, AutoComplete, Input, Button} from "antd"
 import {Redirect} from "react-router-dom"
@@ -40,8 +41,13 @@ const HomeSubSearch = ({header, children, ...props})=>{
 
     const inputSearch = (value, event)=>{
         let option = options.find((option=>{return option.value.toUpperCase()===value.toUpperCase() }))
-        setCode(option.code)
-        setRedirect(true)
+            if(option){
+                setCode(option.code)
+                setRedirect(true)
+            }else{
+                console.log('calling')
+                countryNotFound()
+            }
     }
 
     return(

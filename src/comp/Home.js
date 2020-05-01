@@ -60,19 +60,21 @@ const Home = (props)=>{
     if(!Countries.list || Countries.loading){
         return(
             <div className="yeet">
-                {loadVar.map((card)=>(
-                    <Card loading = {true} style={{height:"350px", display:'block', width:"20%", margin:"1%"}}>
-    
-                        <Meta
-                        title="This is the title"
-                        description="This is the description"
-                        >
-                            <p>Yeet</p>
-                            <p>Or</p>
-                            <p>Be</p>
-                            <p>Yate</p>
-                        </Meta>
-                    </Card>
+                {loadVar.map((card,index)=>(
+                    <Link key={index} to="/">
+                        <Card loading = {true}>
+        
+                            <Meta
+                            title="This is the title"
+                            description="This is the description"
+                            >
+                                <p>Yeet</p>
+                                <p>Or</p>
+                                <p>Be</p>
+                                <p>Yate</p>
+                            </Meta>
+                        </Card>
+                    </Link>
                 ))}
             </div>
 
@@ -85,8 +87,8 @@ const Home = (props)=>{
         <div>
             <div className="yeet">
                 {Countries.list.slice(indexOfFirstCard,indexOfLastCard).map((place,index)=>(
-                    <Link to = {`/country/${place.alpha3Code}`}>
-                        <Card key={index} hoverable  cover = {<img alt="flag" src={place.flag}/>}>
+                    <Link key={index} to = {`/country/${place.alpha3Code}`}>
+                        <Card hoverable  cover = {<img alt="flag" src={place.flag}/>}>
                             <Meta
                                 title = {place.name}
                                 style={{marginBottom:'14px'}}

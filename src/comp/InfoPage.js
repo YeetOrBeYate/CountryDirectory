@@ -3,7 +3,7 @@ import {useDispatch, useSelector} from 'react-redux';
 import {Card, Divider,Tabs,Skeleton, Select} from "antd"
 import {LoadSingleCountry} from "../Actions/CountriesActions"
 import {loadStatistics} from "../Actions/StatisticsActions"
-import { loadCountriesNotif} from "./Utils"
+import { loadCountriesNotif,codeNotFound} from "./Utils"
 
 import InfoStats from "./InfoStats"
 
@@ -29,6 +29,14 @@ const InfoPage = (props)=>{
         }
 
     },[Countries.singleFailure])
+    
+    React.useEffect(()=>{
+        
+        if(Countries.code){
+            codeNotFound()
+        }
+
+    },[Countries.code])
 
     if(!Statistics.avgArea || !Countries.single){
         return(
