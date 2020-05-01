@@ -48,7 +48,6 @@
 .Info{
   /* border:.1px solid blue; */
   display: flex;
- 
 }
 
 .Info .ant-card{
@@ -93,26 +92,58 @@
     flex-direction: column;
     flex-wrap: nowrap;
   }
-  .ant-card{
-    width: 60%;
+  .yeet a{
+    width: 65%;
     margin: 5% auto;
   }
   .ant-layout-content{
     padding: 0 20px;
   }
 
-  .Info .ant-card{
-    width: 90%;
-    height: 70%;
-    /* border:1px solid red; */
-
+  .Info{
+    /* border:.1px solid blue; */
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 15px;
   }
+  .Info .ant-card{
+    width: 95%;
+    height: 70%;
+    margin: 0 auto;
+    margin-bottom: 5%;
+  }
+
+  .Info .ant-tabs{
+    width: 95%;
+    height: 50%;
+    margin: 0 auto;
+  }
+
+  .ant-tabs .ant-tabs-top-content{
+    height: 87%;
+    /* border:1px solid red */
+  }
+
+
+  .ant-statistic span{
+    font-size:16px
+  }
+
 
 }
 
 @media screen and (max-width:673px){
   .ant-input-group-wrapper{
     margin: 0;
+  }
+
+
+}
+
+@media screen and (max-width:361px){
+
+  .ant-statistic span{
+    font-size:14px
   }
 }
 

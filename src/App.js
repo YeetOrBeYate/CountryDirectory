@@ -1,5 +1,5 @@
 import React from 'react';
-import {Route,Switch} from "react-router-dom"
+import {Route,Switch, Link} from "react-router-dom"
 import {useDispatch, useSelector} from 'react-redux';
 import { Layout, Menu, Button, Input, AutoComplete } from 'antd';
 import {FilterOutlined, DownOutlined} from "@ant-design/icons"
@@ -33,10 +33,10 @@ function App(props) {
         <Header className="header">
           <div className="logo">
           </div>
-          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-            <Menu.Item key="1">nav 1</Menu.Item>
-            <Menu.Item key="2">nav 2</Menu.Item>
-            <Menu.Item key="3">nav 3</Menu.Item>
+          <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['1']}>
+            <Menu.Item key="1">
+              <Link to="/">Home</Link>
+            </Menu.Item>
           </Menu>
         </Header>
         <Content style={{}}>
@@ -86,7 +86,7 @@ function App(props) {
             </Content>
           </Layout>
         </Content>
-        <Footer style={{ textAlign: 'center' }}>Ant Design ©2018 Created by Ant UED</Footer>
+        <Footer style={{ textAlign: 'center' }}>Kyle Corbin 2020:Ant Design</Footer>
       </Layout>
 
     //  </div>
