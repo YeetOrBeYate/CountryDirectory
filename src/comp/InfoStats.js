@@ -70,6 +70,7 @@ const InfoStats = (props)=>{
                         value={props.area}
                         valueStyle={{color: findColor("big",props.area, props.compareArea)}}
                         prefix={findArrow("big",props.area, props.compareArea)}
+                        suffix={<span>km<sup>2</sup></span>}
                     />
                 </Col>
                 <Col span={12}>
@@ -77,6 +78,7 @@ const InfoStats = (props)=>{
                         title="Average Area"
                         precision={0}
                         value={props.compareArea}
+                        suffix={<span>km<sup>2</sup></span>}
                     />
                 </Col>
             </Row>

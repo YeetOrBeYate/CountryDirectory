@@ -1,5 +1,5 @@
 import axios from "axios"
-import {loadSuccess} from "../Actions/CountriesActions"
+import {loadSuccess,loadFailure} from "../Actions/CountriesActions"
 
 const loadingStats = ()=>{
     return {type:"statisticsLoading"}
@@ -141,6 +141,10 @@ const successStats = (data)=>{
 
 }
 
+const failureStats = ()=>{
+    return {type:'statisticsFailure'}
+}
+
 
 export const loadStatistics = ()=>{
     return function(dispatch){
@@ -157,6 +161,7 @@ export const loadStatistics = ()=>{
 
         .catch(err=>{
             console.log("stats",err)
+            dispatch(failureStats())
         })
 
 }

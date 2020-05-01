@@ -9,8 +9,20 @@ export const loadSuccess = (data)=>{
     return {type:'countriesSuccess', payload:data}
 }
 
+export const loadFailure = ()=>{
+    return {type:'countriesFailure'}
+}
+
+const loadingSingle = ()=>{
+    return {type:'singleCountryLoad'}
+}
+
 const loadSingleSuccess = (data)=>{
-    return{type:'singleCountrySuccess', payload:data}
+    return {type:'singleCountrySuccess', payload:data}
+}
+
+const loadSingleFailure = ()=>{
+    return {type:'singleCountryFailure'}
 }
 
 
@@ -29,6 +41,7 @@ export const LoadCountries = ()=>{
 
         .catch(err=>{
             console.log("loaderr",err)
+            dispatch(loadFailure())
         })
     }
 }
@@ -37,7 +50,7 @@ export const LoadSingleCountry = (code)=>{
 
     return function(dispatch){
 
-        dispatch(loading())
+        dispatch(loadingSingle())
 
         return axios.get(`https://restcountries.eu/rest/v2/alpha/${code}`)
 
@@ -49,6 +62,7 @@ export const LoadSingleCountry = (code)=>{
 
         .catch(err=>{
             console.log('single country err', err)
+            dispatch(loadSingleFailure())
         })
     }
 
@@ -67,6 +81,7 @@ export const FilterCountries = (region)=>{
 
         .catch(err=>{
             console.log("filter",err)
+            dispatch(loadFailure())
         })
     }
 }
@@ -83,6 +98,7 @@ export const FilterBlocs = (bloc)=>{
 
         .catch(err=>{
             console.log('bloc',err)
+            dispatch(loadFailure())
         })
     }
 }

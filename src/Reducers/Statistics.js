@@ -15,6 +15,7 @@
 const initialState={
     loading:false,
     failure:false,
+    
     avgPopulation:null,
     avgAsiaPop:null,
     avgAfricaPop:null,
@@ -41,7 +42,8 @@ export const StatisticsReducer = (state=initialState, action)=>{
             return {...state, loading:true}
         case "statisticsSuccess":
             return {...state,
-                loading:false, 
+                loading:false,
+                failure:false, 
                 avgPopulation:action.payload.avgPopulation,
                 avgAsiaPop:action.payload.avgAsiaPop,
                 avgAfricaPop:action.payload.avgAfricaPop,
@@ -61,8 +63,8 @@ export const StatisticsReducer = (state=initialState, action)=>{
                 avgEuropeGini:action.payload.avgEuropeGini,
                 avgOceaniaGini:action.payload.avgOceaniaGini
             }
-        case'statFailure':
-            return {...state, failure:false}
+        case'statisticsFailure':
+            return {...state, loading:false, failure:false}
 
         default:
             return state

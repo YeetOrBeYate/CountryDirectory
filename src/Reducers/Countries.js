@@ -3,6 +3,9 @@ const initialState = {
     loading:false,
     failure:false,
     list:null,
+
+    singleLoading:false,
+    singleFailure:false,
     single:null
 }
 
@@ -11,11 +14,17 @@ export const CountriesReducer = (state = initialState, action)=>{
         case "countriesLoading":
             return {...state, loading:true}
         case "countriesSuccess":
-            return {...state, loading:false, list:action.payload}
+            return {...state, loading:false, failure:false, list:action.payload}
         case "countriesFailure":
-            return {...state, loading:false}
+            return {...state, loading:false, failure:true}
+
+
+        case "singleCountryLoad":
+            return{...state, singleLoading:true}
         case "singleCountrySuccess":
-            return {...state, loading:false, single:action.payload}
+            return {...state, loading:false, failure:false, single:action.payload}
+        case "singleCountryFailure":
+            return {...state, loading:false, singleFailure:true}
         default:
             return state
     }
