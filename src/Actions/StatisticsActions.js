@@ -1,5 +1,5 @@
 import axios from "axios"
-import {loadSuccess,loadFailure} from "../Actions/CountriesActions"
+import {loadSuccess} from "../Actions/CountriesActions"
 
 const loadingStats = ()=>{
     return {type:"statisticsLoading"}

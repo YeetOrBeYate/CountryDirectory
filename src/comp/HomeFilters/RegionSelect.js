@@ -1,6 +1,6 @@
 import React from 'react'
 import {Select} from 'antd'
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import {FilterCountries, LoadCountries} from "../../Actions/CountriesActions"
 import {resetPage} from "../../Actions/ResetActions"
 import "../../App.css"
@@ -9,8 +9,6 @@ import "../../App.css"
 const RegionSelect = ()=>{
 
     const dispatch = useDispatch()
-    const Countries = useSelector(state=>state.Countries)
-
 
     const {Option} = Select;
     const [region, setRegion] = React.useState({

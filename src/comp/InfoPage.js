@@ -1,6 +1,6 @@
 import React from "react"
 import {useDispatch, useSelector} from 'react-redux';
-import {Card, Divider,Tabs,Skeleton, Select} from "antd"
+import {Card, Divider,Tabs,Skeleton} from "antd"
 import {LoadSingleCountry} from "../Actions/CountriesActions"
 import {loadStatistics} from "../Actions/StatisticsActions"
 import { loadCountriesNotif,codeNotFound} from "./Utils"

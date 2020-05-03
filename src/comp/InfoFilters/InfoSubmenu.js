@@ -1,5 +1,5 @@
 import React from 'react'
-import {Menu, Select} from "antd"
+import {Menu} from "antd"
 import {GlobalOutlined} from "@ant-design/icons"
 import BordersSelect from "./BordersSelect"
 import "../../App.css"

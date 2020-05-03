@@ -7,7 +7,7 @@ const InfoStats = (props)=>{
 
     const findColor = (type, stat, compare)=>{
 
-        if(type == "gini"){
+        if(type === "gini"){
             if(stat >= compare){
                 return '#cf1322'
             }else{

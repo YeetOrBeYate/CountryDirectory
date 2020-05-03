@@ -1,7 +1,7 @@
 import React from 'react'
 import {countryNotFound} from "../Utils"
-import {useDispatch, useSelector} from 'react-redux';
-import {Menu, AutoComplete, Input, Button} from "antd"
+import {useSelector} from 'react-redux';
+import {Menu, AutoComplete, Input} from "antd"
 import {Redirect} from "react-router-dom"
 import {SearchOutlined} from "@ant-design/icons"
 import "../../App.css"
@@ -45,7 +45,7 @@ const HomeSubSearch = ({header, children, ...props})=>{
                 setCode(option.code)
                 setRedirect(true)
             }else{
-                console.log('calling')
+                
                 countryNotFound()
             }
     }

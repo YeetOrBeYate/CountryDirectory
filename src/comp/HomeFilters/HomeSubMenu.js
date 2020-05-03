@@ -1,6 +1,6 @@
 import React from 'react'
-import {Menu, Select} from "antd"
-import {FilterOutlined, DownOutlined} from "@ant-design/icons"
+import {Menu} from "antd"
+import {FilterOutlined} from "@ant-design/icons"
 import RegionSelect from "./RegionSelect"
 import TradingSelect from "./TradingSelect"
 import "../../App.css"

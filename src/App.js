@@ -1,11 +1,10 @@
 import React from 'react';
 import {Route,Switch, Link} from "react-router-dom"
-import {useDispatch, useSelector} from 'react-redux';
-import { Layout, Menu, Button, Input, AutoComplete } from 'antd';
+import {useSelector} from 'react-redux';
+import { Layout, Menu} from 'antd';
 import {AntDesignOutlined} from "@ant-design/icons"
 import Home from "./comp/Home"
 import HomeSubMenu from "./comp/HomeFilters/HomeSubMenu"
-import InfoSubmenu from "./comp/InfoFilters/InfoSubmenu"
 import HomeSubSearch from "./comp/HomeFilters/HomeSubSearch"
 import About from "./comp/About"
 import InfoPage from "./comp/InfoPage"
@@ -44,7 +43,7 @@ function App(props) {
         <Content style={{}}>
           <Layout className="site-layout-background" style={{ padding: '24px 0' }}>
             <Sider 
-              breakpoint = "sm"
+              breakpoint = "lg"
               collapsedWidth= "0px"
               width="300px"
             >
@@ -90,7 +89,7 @@ function App(props) {
         </Content>
         <Footer style={{ textAlign: 'center' }}>Kyle Corbin 2020: Ant Design <AntDesignOutlined />
           <div>
-            <a target="_blank" href="https://icons8.com">Icons8</a>
+            <a target="_blank" rel="noopener noreferrer" href="https://icons8.com">Icons8</a>
           </div>
         </Footer>
       </Layout>
