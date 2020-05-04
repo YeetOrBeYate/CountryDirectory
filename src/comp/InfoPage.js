@@ -38,7 +38,7 @@ const InfoPage = (props)=>{
 
     },[Countries.code])
 
-    if(!Statistics.avgArea || !Countries.single){
+    if(!Statistics.avgArea || !Countries.single || Countries.singleLoading){
         return(
         <div className = "Info">
             <Card>
